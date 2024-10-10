@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Inicializa el mapa y configura el callback de mapa listo
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.mapView);
         mapFragment.getMapAsync(this);
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         checkLocationPermission();
     }
 
+    // Verifica si los permisos de ubicación están concedidos o solicita permisos si no lo están
     private void checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
+    // Obtiene la última ubicación conocida y la muestra en el mapa
     private void getCurrentLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
@@ -72,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 });
     }
 
+    // Callback que se ejecuta cuando el mapa está listo
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -84,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.setMyLocationEnabled(true);
     }
 
-
+    // Procesa los resultados de la solicitud de permisos
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
