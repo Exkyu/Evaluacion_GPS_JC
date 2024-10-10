@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    // Obtiene la última ubicación conocida y la muestra en el mapa
+    // Obtiene la ultima ubicación conocida y la muestra en el mapa
     private void getCurrentLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 });
     }
 
-    // Callback que se ejecuta cuando el mapa está listo
+    // Callback que se ejecuta cuando el mapa esta listo
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
